@@ -1,0 +1,126 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: $font-sans;
+  background: $bg;
+  color: $text;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-serif;
+  line-height: 1.25;
+  color: $text;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 600; }
+h3 { font-size: 1.2rem; font-weight: 600; }
+h4 { font-size: 1rem; font-weight: 600; }
+
+p { margin-bottom: 1.2rem; }
+p:last-child { margin-bottom: 0; }
+
+a {
+  color: $accent;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  &:hover { color: darken($accent, 12%); text-decoration: underline; }
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+li { margin-bottom: 0.4rem; }
+
+blockquote {
+  border-left: 3px solid $accent;
+  padding: 0.8rem 1.2rem;
+  margin: 1.5rem 0;
+  background: $accent-light;
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: $text-muted;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.87rem;
+  background: $bg-muted;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+pre code {
+  display: block;
+  padding: 1.2rem;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $border;
+  margin: 2rem 0;
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container--wide {
+  max-width: $max-width-wide;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  background: $accent-light;
+  color: $accent;
+  text-decoration: none;
+  transition: background 0.2s;
+  &:hover { background: darken($accent-light, 8%); text-decoration: none; }
+}
+
+.tag--green {
+  background: lighten($green, 48%);
+  color: $green;
+  &:hover { background: lighten($green, 40%); }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn--primary {
+  background: $accent;
+  color: $white;
+  &:hover { background: darken($accent, 8%); color: $white; text-decoration: none; }
+}
+
+.btn--outline {
+  border: 1.5px solid $accent;
+  color: $accent;
+  background: transparent;
+  &:hover { background: $accent-light; text-decoration: none; }
+}

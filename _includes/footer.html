@@ -1,0 +1,22 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <p class="site-footer__name">Moses Nderemani</p>
+        <p class="site-footer__tagline">Researcher · Maker · Writer</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a href="{{ '/work/' | relative_url }}">Work</a>
+        <a href="{{ '/writing/' | relative_url }}">Writing</a>
+        <a href="{{ '/cv/' | relative_url }}">CV</a>
+      </nav>
+      <div class="site-footer__social">
+        {% if site.linkedin_url %}<a href="{{ site.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>{% endif %}
+        {% if site.github_url %}<a href="{{ site.github_url }}" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>{% endif %}
+        {% if site.orcid_url %}<a href="{{ site.orcid_url }}" target="_blank" rel="noopener" aria-label="ORCID">ORCID</a>{% endif %}
+      </div>
+    </div>
+    <p class="site-footer__copy">&copy; {{ site.time | date: "%Y" }} Moses Nderemani. Built with Jekyll, hosted on GitHub Pages.</p>
+  </div>
+</footer>

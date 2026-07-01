@@ -1,0 +1,94 @@
+---
+layout: home
+title: Home
+---
+<div class="container">
+  <section class="home-hero">
+    <div class="grid-2" style="gap:3rem; align-items:start;">
+      <div>
+        <p class="hero__greeting">👋 Hello, I'm</p>
+        <h1>Moses <span>Nderemani</span></h1>
+        <p class="hero__bio">
+          HCI researcher, maker, and writer based in Tampere, Finland. I study how people and AI systems work together, design for accessibility, and document the in-between — the learning, the building, the figuring-it-out.
+        </p>
+        <div class="hero__links">
+          <a href="{{ '/work/' | relative_url }}" class="btn btn--primary">See my work</a>
+          <a href="{{ '/writing/' | relative_url }}" class="btn btn--outline">Read the blog</a>
+        </div>
+      </div>
+      <aside class="home-hero__aside">
+        <h3>Currently</h3>
+        <p>Research Assistant at <strong>PIRG, Tampere University</strong> — working on agentic AI, accessible gaming, and human-AI collaboration.</p>
+        <p style="margin-top:0.75rem;">Finishing my Master's thesis on <em>socio-cognitive friction in multi-user AI environments</em>. Available for full-time roles from mid-2026.</p>
+        <a href="{{ '/cv/' | relative_url }}" style="display:inline-block; margin-top:0.75rem; font-size:0.85rem; color:var(--accent, #B5623E); text-decoration:none; font-weight:600;">View full CV →</a>
+      </aside>
+    </div>
+  </section>
+</div>
+
+<section class="section" style="background: var(--bg-muted, #F5EDE3);">
+  <div class="container">
+    <div class="section__header">
+      <h2>Featured Work</h2>
+      <a href="{{ '/work/' | relative_url }}" class="btn btn--outline" style="font-size:0.85rem;">All projects</a>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card__body">
+          <div class="card__meta">Research · Accessibility · Events</div>
+          <div class="card__title">Over the Barriers</div>
+          <p class="card__excerpt">Designed and led Finland's first fully accessible gaming tournament at Nokia Arena — Xbox sponsorship, 80+ participants, academic paper outcome.</p>
+          <div class="card__tags">
+            <span class="tag">Accessible Gaming</span>
+            <span class="tag tag--green">Published</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__body">
+          <div class="card__meta">Research · AI · HCI</div>
+          <div class="card__title">Agentic AI in Team Workflows</div>
+          <p class="card__excerpt">Master's thesis and Solita industry collaboration examining how teams adapt to — and resist — agentic AI systems. Focus on cognitive flexibility and friction.</p>
+          <div class="card__tags">
+            <span class="tag">Thesis</span>
+            <span class="tag">Industry Collaboration</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__body">
+          <div class="card__meta">Game Dev · Sustainability</div>
+          <div class="card__title">Bubblift</div>
+          <p class="card__excerpt">Environmental awareness game built in 48 hours at Global Game Jam 2025. Godot engine, 3-person team, zero budget.</p>
+          <div class="card__tags">
+            <span class="tag">Godot</span>
+            <span class="tag">Game Jam</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2>Recent Writing</h2>
+      <a href="{{ '/writing/' | relative_url }}" class="btn btn--outline" style="font-size:0.85rem;">All posts</a>
+    </div>
+    <div class="grid-2">
+      {% for post in site.posts limit:4 %}
+      <div class="card">
+        <div class="card__body">
+          <div class="card__meta">
+            <time>{{ post.date | date: "%b %-d, %Y" }}</time>
+            {% if post.categories %}<span>{{ post.categories | first }}</span>{% endif %}
+          </div>
+          <div class="card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+          <p class="card__excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

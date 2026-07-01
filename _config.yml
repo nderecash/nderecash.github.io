@@ -1,0 +1,51 @@
+title: Moses Nderemani
+description: Researcher, maker, and writer exploring human-technology interaction, accessibility, and digital life.
+author: Moses Nderemani
+email: ndelemanimoses@gmail.com
+url: "https://nderecash.github.io"
+baseurl: ""
+
+# Social
+linkedin_url: https://linkedin.com/in/moses-nderemani
+github_url: https://github.com/nderecash
+orcid_url: https://orcid.org/0009-0009-9082-0961
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /writing/:year/:month/:day/:title/
+
+# Collections
+collections:
+  work:
+    output: true
+    permalink: /work/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "work"
+    values:
+      layout: "project"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules

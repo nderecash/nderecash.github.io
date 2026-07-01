@@ -1,0 +1,30 @@
+<header class="site-header">
+  <div class="container">
+    <a href="{{ '/' | relative_url }}" class="site-logo">{{ site.title }}</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="site-nav__list">
+        <li><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>About</a></li>
+        <li><a href="{{ '/work/' | relative_url }}" {% if page.url contains '/work' %}class="active"{% endif %}>Work</a></li>
+        <li><a href="{{ '/writing/' | relative_url }}" {% if page.url contains '/writing' %}class="active"{% endif %}>Writing</a></li>
+        <li><a href="{{ '/photography/' | relative_url }}" {% if page.url contains '/photography' %}class="active"{% endif %}>Photography</a></li>
+        <li><a href="{{ '/cv/' | relative_url }}" {% if page.url == '/cv/' %}class="active"{% endif %}>CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.site-nav__toggle');
+    const nav = document.querySelector('.site-nav');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !expanded);
+        nav.classList.toggle('is-open');
+      });
+    }
+  });
+</script>
