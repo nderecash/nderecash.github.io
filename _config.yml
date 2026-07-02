@@ -2,13 +2,21 @@ title: Moses Nderemani
 description: Researcher, maker, and writer exploring human-technology interaction, accessibility, and digital life.
 author: Moses Nderemani
 email: ndelemanimoses@gmail.com
-url: "https://nderecash.github.io"
+url: "https://mosesnderemani.dev"
 baseurl: ""
 
 # Social
 linkedin_url: https://linkedin.com/in/moses-nderemani
 github_url: https://github.com/nderecash
 orcid_url: https://orcid.org/0009-0009-9082-0961
+substack_url: "#"
+glass_url: "#"
+instagram_url: "#"
+youtube_url: "#"
+itchio_url: "#"
+bluesky_url: "#"
+arena_url: "#"
+scholar_url: "#"
 
 # Build
 markdown: kramdown

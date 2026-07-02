@@ -1,6 +1,12 @@
+// ── Reset ─────────────────────────────────────────
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; scroll-behavior: smooth; }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  lang: en;
+}
 
 body {
   font-family: $font-sans;
@@ -10,56 +16,76 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+// ── Skip link (WCAG 2.4.1) ───────────────────────
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: $primary;
+  color: $white;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 9999;
+  &:focus { top: 0; }
+}
+
+// ── Focus (WCAG 2.4.7) ───────────────────────────
+:focus-visible {
+  outline: 3px solid $primary;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+// ── Typography ───────────────────────────────────
 h1, h2, h3, h4 {
   font-family: $font-serif;
-  line-height: 1.25;
+  line-height: 1.2;
   color: $text;
 }
 
-h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; }
-h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 600; }
-h3 { font-size: 1.2rem; font-weight: 600; }
-h4 { font-size: 1rem; font-weight: 600; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+h3 { font-size: 1.15rem; }
+h4 { font-size: 1rem; }
 
-p { margin-bottom: 1.2rem; }
+p { margin-bottom: 1rem; }
 p:last-child { margin-bottom: 0; }
 
 a {
-  color: $accent;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  &:hover { color: darken($accent, 12%); text-decoration: underline; }
+  color: $primary-dark;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  &:hover { color: $primary; }
 }
 
-img { max-width: 100%; height: auto; display: block; }
+strong { font-weight: 600; }
+em { font-style: italic; }
 
-ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
-li { margin-bottom: 0.4rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.3rem; }
 
 blockquote {
-  border-left: 3px solid $accent;
-  padding: 0.8rem 1.2rem;
+  border-left: 4px solid $primary-light;
+  padding: 0.75rem 1.25rem;
   margin: 1.5rem 0;
-  background: $accent-light;
-  border-radius: 0 6px 6px 0;
-  font-style: italic;
   color: $text-muted;
+  font-style: italic;
+  background: $bg-muted;
+  border-radius: 0 8px 8px 0;
 }
 
 code {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.87rem;
-  background: $bg-muted;
+  font-size: 0.88em;
+  background: $primary-light;
+  color: $primary-dark;
   padding: 0.15em 0.4em;
   border-radius: 4px;
 }
 
-pre code {
-  display: block;
-  padding: 1.2rem;
-  overflow-x: auto;
-  border-radius: 8px;
-}
+img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
 
 hr {
   border: none;
@@ -67,6 +93,7 @@ hr {
   margin: 2rem 0;
 }
 
+// ── Layout helpers ───────────────────────────────
 .container {
   max-width: $max-width;
   margin: 0 auto;
@@ -79,48 +106,118 @@ hr {
   padding: 0 1.5rem;
 }
 
+// ── Grid ─────────────────────────────────────────
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.grid-photo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+// ── Tags ─────────────────────────────────────────
 .tag {
   display: inline-block;
   font-size: 0.72rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.65rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 20px;
-  background: $accent-light;
-  color: $accent;
-  text-decoration: none;
-  transition: background 0.2s;
-  &:hover { background: darken($accent-light, 8%); text-decoration: none; }
+  background: $primary-light;
+  color: $primary-dark;
+  border: 1px solid $primary-border;
+}
+
+.tag--warm {
+  background: $warm-light;
+  color: $warm;
+  border-color: $warm-border;
 }
 
 .tag--green {
-  background: lighten($green, 48%);
+  background: $green-light;
   color: $green;
-  &:hover { background: lighten($green, 40%); }
+  border-color: $green-border;
 }
 
+// ── Buttons ──────────────────────────────────────
 .btn {
   display: inline-block;
-  padding: 0.7rem 1.4rem;
-  border-radius: 6px;
+  font-size: 0.88rem;
   font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.2s;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
-  border: none;
+  transition: background 0.15s, transform 0.1s;
+  &:active { transform: scale(0.98); }
 }
 
 .btn--primary {
-  background: $accent;
+  background: $primary;
   color: $white;
-  &:hover { background: darken($accent, 8%); color: $white; text-decoration: none; }
+  border: 2px solid $primary;
+  &:hover { background: $primary-dark; border-color: $primary-dark; color: $white; }
 }
 
 .btn--outline {
-  border: 1.5px solid $accent;
-  color: $accent;
   background: transparent;
-  &:hover { background: $accent-light; text-decoration: none; }
+  color: $primary-dark;
+  border: 2px solid $primary-border;
+  &:hover { background: $primary-light; border-color: $primary; color: $primary-dark; }
+}
+
+// ── Section ──────────────────────────────────────
+.section {
+  padding: 3.5rem 0;
+  &__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+// ── Page hero ────────────────────────────────────
+.page-hero {
+  padding: 3rem 0 2rem;
+  .eyebrow {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $primary;
+    margin-bottom: 0.5rem;
+  }
+  .lead {
+    font-size: 1.1rem;
+    color: $text-muted;
+    margin-top: 0.5rem;
+    max-width: 560px;
+  }
+}
+
+// ── Screen reader only ───────────────────────────
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }

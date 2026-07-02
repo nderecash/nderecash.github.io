@@ -1,280 +1,212 @@
-// ── Cards ─────────────────────────────────────────
+// ── Card ─────────────────────────────────────────
 .card {
   background: $bg-card;
   border: 1px solid $border;
-  border-radius: 10px;
+  border-radius: 14px;
   overflow: hidden;
-  transition: box-shadow 0.2s, transform 0.2s;
-  &:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  &:hover {
+    box-shadow: 0 8px 28px rgba(79, 70, 229, 0.1);
+    border-color: $primary-border;
+    transform: translateY(-2px);
+  }
 }
 
-.card__body { padding: 1.4rem; }
+.card__body { padding: 1.35rem; }
 
 .card__meta {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: $text-muted;
-  margin-bottom: 0.5rem;
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  flex-wrap: wrap;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
 }
 
 .card__title {
   font-family: $font-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  a { color: $text; &:hover { color: $accent; text-decoration: none; } }
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  a { color: $text; text-decoration: none; &:hover { color: $primary-dark; } }
 }
 
 .card__excerpt {
-  font-size: 0.9rem;
+  font-size: 0.87rem;
   color: $text-muted;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.75rem;
-}
-
-.card__image {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  background: $bg-muted;
-}
-
-// ── Post / article ───────────────────────────────
-.post {
-  max-width: $max-width;
-  margin: 0 auto;
-}
-
-.post__header {
-  padding: 3rem 0 2rem;
-  border-bottom: 1px solid $border;
-  margin-bottom: 2.5rem;
-}
-
-.post__meta {
-  font-size: 0.82rem;
-  color: $text-muted;
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.post__title {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  margin-bottom: 1rem;
-}
-
-.post__lead {
-  font-size: 1.1rem;
-  color: $text-muted;
-  font-style: italic;
-}
-
-.post__body {
-  font-size: 1.02rem;
-  line-height: 1.8;
-
-  h2 { margin: 2.5rem 0 1rem; }
-  h3 { margin: 2rem 0 0.75rem; }
-  p { margin-bottom: 1.4rem; }
-  img { border-radius: 8px; margin: 1.5rem 0; }
-  figcaption { font-size: 0.82rem; color: $text-muted; text-align: center; margin-top: -1rem; margin-bottom: 1.5rem; }
-}
-
-// ── CV / Timeline ────────────────────────────────
-.cv-section {
-  margin-bottom: 3rem;
-  h2 {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: $accent;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid $accent-light;
-    margin-bottom: 1.5rem;
-  }
-}
-
-.cv-entry {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 1rem 1.5rem;
-  margin-bottom: 1.8rem;
-  @media (max-width: $mobile) { grid-template-columns: 1fr; }
-}
-
-.cv-entry__date {
-  font-size: 0.82rem;
-  color: $text-muted;
-  font-weight: 500;
-  padding-top: 0.15rem;
-}
-
-.cv-entry__title {
-  font-weight: 700;
-  font-size: 0.98rem;
-  margin-bottom: 0.15rem;
-}
-
-.cv-entry__org {
-  font-size: 0.88rem;
-  color: $accent;
-  margin-bottom: 0.5rem;
-}
-
-.cv-entry__body {
-  font-size: 0.88rem;
-  color: $text-muted;
-  line-height: 1.65;
-  ul { margin: 0.4rem 0 0; }
-}
-
-.cv-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.cv-skill {
-  font-size: 0.8rem;
-  padding: 0.25rem 0.7rem;
-  background: $bg-muted;
-  border-radius: 20px;
-  color: $text-muted;
-}
-
-// ── Photography ──────────────────────────────────
-.photo-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 6px;
-  cursor: pointer;
-  aspect-ratio: 1;
-  background: $bg-muted;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-
-  &:hover img { transform: scale(1.04); }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba($text, 0);
-    transition: background 0.3s;
-  }
-  &:hover::after { background: rgba($text, 0.08); }
-}
-
-.photo-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 0.75rem;
-  background: linear-gradient(transparent, rgba($text, 0.7));
-  color: $white;
-  font-size: 0.82rem;
-  opacity: 0;
-  transition: opacity 0.3s;
-  .photo-item:hover & { opacity: 1; }
+  gap: 0.35rem;
+  margin-top: 0.6rem;
 }
 
 // ── Home hero ────────────────────────────────────
 .home-hero {
   padding: 5rem 0 4rem;
-
-  .hero__greeting {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: $accent;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-  }
-
-  h1 {
-    margin-bottom: 1.5rem;
-    span { color: $accent; }
-  }
-
-  .hero__bio {
-    font-size: 1.1rem;
-    color: $text-muted;
-    max-width: 560px;
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
-
-  .hero__links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
 }
 
-.home-hero__aside {
-  background: $bg-muted;
-  border-radius: 12px;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  height: fit-content;
-
-  h3 { font-size: 0.95rem; margin-bottom: 0.75rem; color: $text; }
-  p { color: $text-muted; font-size: 0.85rem; }
-}
-
-// ── Publication entry ────────────────────────────
-.pub-entry {
-  padding: 1.2rem 0;
-  border-bottom: 1px solid $border;
-  &:last-child { border-bottom: none; }
-}
-
-.pub-entry__title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: 0.3rem;
-}
-
-.pub-entry__venue {
-  font-size: 0.83rem;
-  color: $accent;
-  margin-bottom: 0.3rem;
-}
-
-.pub-entry__authors {
-  font-size: 0.82rem;
-  color: $text-muted;
-}
-
-// ── Status badge ─────────────────────────────────
-.badge {
-  display: inline-block;
-  font-size: 0.7rem;
+.hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
-  margin-left: 0.4rem;
+  letter-spacing: 0.1em;
+  color: $primary-dark;
+  background: $primary-light;
+  border: 1px solid $primary-border;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 1.25rem;
 }
 
-.badge--green { background: lighten($green, 48%); color: $green; }
-.badge--orange { background: $accent-light; color: $accent; }
+.hero__bio {
+  font-size: 1.1rem;
+  color: $text-muted;
+  max-width: 520px;
+  margin-bottom: 2rem;
+  line-height: 1.75;
+}
+
+.hero__links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero__aside {
+  background: $bg-muted;
+  border: 1px solid $primary-border;
+  border-radius: 14px;
+  padding: 1.35rem;
+  height: fit-content;
+
+  h3 {
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $primary-dark;
+    margin-bottom: 0.6rem;
+  }
+
+  p { font-size: 0.87rem; color: $text-muted; line-height: 1.65; margin-bottom: 0.6rem; }
+  a { font-size: 0.82rem; font-weight: 600; color: $primary-dark; }
+}
+
+// ── Section divider label ────────────────────────
+.section-label {
+  font-family: $font-sans;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $primary-dark;
+  background: $primary-light;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+
+// ── Connect grid ─────────────────────────────────
+.connect-group {
+  margin-bottom: 2.5rem;
+  h2 {
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $primary-dark;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $primary-light;
+    margin-bottom: 1.1rem;
+  }
+}
+
+.connect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.connect-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  text-decoration: none;
+  color: $text;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+
+  &:hover {
+    border-color: $primary-border;
+    box-shadow: 0 4px 16px rgba(79,70,229,0.08);
+    transform: translateY(-1px);
+    color: $text;
+  }
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 0.87rem;
+    display: block;
+  }
+
+  &__handle {
+    font-size: 0.75rem;
+    color: $text-muted;
+    display: block;
+  }
+}
+
+// ── Badge ────────────────────────────────────────
+.badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.badge--green  { background: $green-light;  color: $green;      border: 1px solid $green-border; }
+.badge--indigo { background: $primary-light; color: $primary-dark; border: 1px solid $primary-border; }
+.badge--warm   { background: $warm-light;   color: $warm;       border: 1px solid $warm-border; }
+
+// ── Photo grid ───────────────────────────────────
+.photo-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: $bg-muted;
+  img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  &:hover img { transform: scale(1.04); }
+}

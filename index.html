@@ -1,68 +1,69 @@
 ---
-layout: home
+layout: default
 title: Home
+description: Moses Nderemani — HCI researcher, maker, and writer based in Tampere, Finland.
 ---
 <div class="container">
-  <section class="home-hero">
-    <div class="grid-2" style="gap:3rem; align-items:start;">
+  <section class="home-hero" aria-labelledby="hero-heading">
+    <div class="grid-2" style="gap:2.5rem; align-items:start;">
       <div>
-        <p class="hero__greeting">👋 Hello, I'm</p>
-        <h1>Moses <span>Nderemani</span></h1>
+        <span class="hero__label" aria-hidden="true">&#128075; Based in Tampere, Finland</span>
+        <h1 id="hero-heading">Moses<br>Nderemani</h1>
         <p class="hero__bio">
-          HCI researcher, maker, and writer based in Tampere, Finland. I study how people and AI systems work together, design for accessibility, and document the in-between — the learning, the building, the figuring-it-out.
+          HCI researcher, maker, and writer. I study how people and AI systems work together, design for accessibility, and document the learning in between.
         </p>
         <div class="hero__links">
           <a href="{{ '/work/' | relative_url }}" class="btn btn--primary">See my work</a>
-          <a href="{{ '/writing/' | relative_url }}" class="btn btn--outline">Read the blog</a>
+          <a href="{{ '/connect/' | relative_url }}" class="btn btn--outline">Find me online</a>
         </div>
       </div>
-      <aside class="home-hero__aside">
+      <aside class="hero__aside" aria-label="Current status">
         <h3>Currently</h3>
         <p>Research Assistant at <strong>PIRG, Tampere University</strong> — working on agentic AI, accessible gaming, and human-AI collaboration.</p>
-        <p style="margin-top:0.75rem;">Finishing my Master's thesis on <em>socio-cognitive friction in multi-user AI environments</em>. Available for full-time roles from mid-2026.</p>
-        <a href="{{ '/cv/' | relative_url }}" style="display:inline-block; margin-top:0.75rem; font-size:0.85rem; color:var(--accent, #B5623E); text-decoration:none; font-weight:600;">View full CV →</a>
+        <p>Finishing my Master's thesis on socio-cognitive friction in multi-user AI environments. Available for full-time roles from mid-2026.</p>
+        <a href="{{ '/cv/' | relative_url }}">View full CV &rarr;</a>
       </aside>
     </div>
   </section>
 </div>
 
-<section class="section" style="background: var(--bg-muted, #F5EDE3);">
+<section class="section" style="background:#EEF2FF; border-top: 1px solid #C7D2FE; border-bottom: 1px solid #C7D2FE;" aria-labelledby="work-heading">
   <div class="container">
     <div class="section__header">
-      <h2>Featured Work</h2>
-      <a href="{{ '/work/' | relative_url }}" class="btn btn--outline" style="font-size:0.85rem;">All projects</a>
+      <h2 id="work-heading" style="font-size:1.3rem;">Featured work</h2>
+      <a href="{{ '/work/' | relative_url }}" class="btn btn--outline" style="font-size:0.82rem;">All projects</a>
     </div>
     <div class="grid-3">
       <div class="card">
         <div class="card__body">
           <div class="card__meta">Research · Accessibility · Events</div>
           <div class="card__title">Over the Barriers</div>
-          <p class="card__excerpt">Designed and led Finland's first fully accessible gaming tournament at Nokia Arena — Xbox sponsorship, 80+ participants, academic paper outcome.</p>
+          <p class="card__excerpt">Finland's first fully accessible gaming tournament at Nokia Arena — Xbox sponsorship, 80+ participants, academic paper accepted at Academic Mindtrek 2026.</p>
           <div class="card__tags">
-            <span class="tag">Accessible Gaming</span>
-            <span class="tag tag--green">Published</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag--green tag">Published</span>
           </div>
         </div>
       </div>
       <div class="card">
         <div class="card__body">
           <div class="card__meta">Research · AI · HCI</div>
-          <div class="card__title">Agentic AI in Team Workflows</div>
-          <p class="card__excerpt">Master's thesis and Solita industry collaboration examining how teams adapt to — and resist — agentic AI systems. Focus on cognitive flexibility and friction.</p>
+          <div class="card__title">Agentic AI in team workflows</div>
+          <p class="card__excerpt">Master's thesis and Solita industry collaboration examining how teams adapt to agentic AI systems. Focus: cognitive flexibility and socio-cognitive friction.</p>
           <div class="card__tags">
             <span class="tag">Thesis</span>
-            <span class="tag">Industry Collaboration</span>
+            <span class="tag">Industry collaboration</span>
           </div>
         </div>
       </div>
       <div class="card">
         <div class="card__body">
-          <div class="card__meta">Game Dev · Sustainability</div>
+          <div class="card__meta">Game dev · Global Game Jam 2025</div>
           <div class="card__title">Bubblift</div>
-          <p class="card__excerpt">Environmental awareness game built in 48 hours at Global Game Jam 2025. Godot engine, 3-person team, zero budget.</p>
+          <p class="card__excerpt">Environmental awareness game built in 48 hours. Godot engine, 3-person team, zero budget — shipped complete.</p>
           <div class="card__tags">
             <span class="tag">Godot</span>
-            <span class="tag">Game Jam</span>
+            <span class="tag--warm tag">Game Jam</span>
           </div>
         </div>
       </div>
@@ -70,25 +71,30 @@ title: Home
   </div>
 </section>
 
-<section class="section">
+<section class="section" aria-labelledby="writing-heading">
   <div class="container">
     <div class="section__header">
-      <h2>Recent Writing</h2>
-      <a href="{{ '/writing/' | relative_url }}" class="btn btn--outline" style="font-size:0.85rem;">All posts</a>
+      <h2 id="writing-heading" style="font-size:1.3rem;">Writing</h2>
+      <a href="{{ site.substack_url | default: '#' }}" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="font-size:0.82rem;">Read on Substack &rarr;</a>
     </div>
     <div class="grid-2">
-      {% for post in site.posts limit:4 %}
       <div class="card">
         <div class="card__body">
-          <div class="card__meta">
-            <time>{{ post.date | date: "%b %-d, %Y" }}</time>
-            {% if post.categories %}<span>{{ post.categories | first }}</span>{% endif %}
-          </div>
-          <div class="card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
-          <p class="card__excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+          <div class="card__meta">Research · May 2025</div>
+          <div class="card__title"><a href="{{ site.substack_url | default: '#' }}" target="_blank" rel="noopener noreferrer">What we got wrong about accessible esports</a></div>
+          <p class="card__excerpt">We spent three months planning the most accessible gaming tournament in Tampere. Here's what surprised us on the day.</p>
+          <div class="card__tags"><span class="tag">Accessibility</span><span class="tag">Events</span></div>
         </div>
       </div>
-      {% endfor %}
+      <div class="card">
+        <div class="card__body">
+          <div class="card__meta">Life · Feb 2025</div>
+          <div class="card__title"><a href="{{ site.substack_url | default: '#' }}" target="_blank" rel="noopener noreferrer">What nobody tells you about moving to Finland</a></div>
+          <p class="card__excerpt">The cold, the bureaucracy, the quiet — and why I'd do it again.</p>
+          <div class="card__tags"><span class="tag">Finland</span><span class="tag">Life</span></div>
+        </div>
+      </div>
     </div>
+    <p style="margin-top:1.25rem; font-size:0.87rem; color:#475569;">All writing lives on <a href="{{ site.substack_url | default: '#' }}" target="_blank" rel="noopener noreferrer">Substack</a>. New posts go there first.</p>
   </div>
 </section>
