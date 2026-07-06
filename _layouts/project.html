@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<div class="container" style="max-width: 780px;">
+  <div class="page-hero">
+    {% if page.eyebrow %}<span class="eyebrow">{{ page.eyebrow }}</span>{% endif %}
+    <h1>{{ page.title }}</h1>
+    {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+    {% if page.meta %}<p style="font-size:0.9rem; color:#6B6B6B; margin-top:0.5rem;">{{ page.meta }}</p>{% endif %}
+    {% if page.tags %}
+    <div class="card__tags" style="margin-top:0.75rem;">
+      {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="post__body">
+    {{ content }}
+  </div>
+  <p style="margin:2.5rem 0;"><a href="{{ '/work/' | relative_url }}">&larr; Back to all work</a></p>
+</div>

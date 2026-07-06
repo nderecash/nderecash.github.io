@@ -16,7 +16,7 @@ I came to HCI research because I got tired of watching organisations build thing
 
 ## Things I'm working on
 
-Right now I'm finishing my Master's thesis — *Exploring Socio-Cognitive Friction and Interactional Dynamics for Agentic AI Integration in Multi-User Environments* — in collaboration with Solita. I'm also writing a paper on accessible esports event design based on the [Over the Barriers](/work/) tournament I led at Nokia Arena in 2025, which has been accepted for Academic Mindtrek 2026.
+Right now I'm finishing my Master's thesis — *Exploring Socio-Cognitive Friction and Interactional Dynamics for Agentic AI Integration in Multi-User Environments* — in collaboration with Solita. I'm also writing a paper on accessible esports event design based on the [Over the Barriers](/work/over-the-barriers/) tournament I led at Nokia Arena, which is under review at Academic Mindtrek 2026.
 
 ---
 

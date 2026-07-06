@@ -73,7 +73,7 @@ permalink: /cv/
           <li>Conducting multi-disciplinary research on human-AI interaction, agentic systems, and accessibility</li>
           <li>Co-designing research prototypes; contributing to multiple active PIRG projects</li>
           <li>Presenting at Spring Game Researcher Seminar, Tampere University Game Research Lab (May 2026)</li>
-          <li>Led and co-authored academic study on accessible esports event design (Academic Mindtrek 2026, accepted)</li>
+          <li>Led and co-authored academic study on accessible esports event design (Academic Mindtrek 2026, under review)</li>
           <li>Authoring work-in-progress on AI accessibility in primary/secondary education in Sub-Saharan Africa</li>
         </ul>
       </div>
@@ -86,7 +86,7 @@ permalink: /cv/
 
   <div class="pub-entry">
     <div class="pub-entry__title">Designing and Organising Accessible E-Sports Events: Lessons from Over the Barriers</div>
-    <div class="pub-entry__venue">Academic Mindtrek 2026 — Accepted</div>
+    <div class="pub-entry__venue">Academic Mindtrek 2026 — Under review</div>
     <div class="pub-entry__authors">Moses Nderemani et al. Ethnographic study of an accessible gaming tournament at Nokia Arena, Tampere.</div>
   </div>
 
@@ -165,7 +165,7 @@ permalink: /cv/
       <div class="cv-entry__title">Over the Barriers — Accessible Gaming Tournament</div>
       <div class="cv-entry__org">Nokia Arena, Tampere</div>
       <div class="cv-entry__body">
-        End-to-end design and delivery of Finland's first fully accessible gaming tournament. Secured Xbox sponsorship, Nokia Arena partnership. 80+ participants. Volunteer team coordination. Academic paper outcome (Academic Mindtrek 2026, accepted).
+        End-to-end design and delivery of a fully accessible gaming tournament, two editions (2024, 2025). Secured Xbox sponsorship, Nokia Arena partnership. 100+ attendees in 2024; streamed live on Yle Areena both years. Volunteer team coordination. Academic paper outcome (Academic Mindtrek 2026, under review).
       </div>
     </div>
   </div>
